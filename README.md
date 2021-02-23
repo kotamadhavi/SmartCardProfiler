@@ -26,3 +26,9 @@ git add .
 git commit -m " comment"
 git push
 
+### angular installation
+npm install -g @angular/cli
+npm install --global npm@6
+
+cd c:\madhavi\smartcardprofiler\code\ui
+ng new smartcard-profiler-app
