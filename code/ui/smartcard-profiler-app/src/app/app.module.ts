@@ -8,8 +8,7 @@ import { CardIntakeListComponent } from './transaction/create/card-intake-list/c
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HomeComponent } from './home/home.component';
 import { AppCommonModule } from './app-common/app-common.module';
-import { NavbarComponent } from './app-common/layout/navbar/navbar.component';
-
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,6 +21,7 @@ import { NavbarComponent } from './app-common/layout/navbar/navbar.component';
     AppRoutingModule,
     NgbModule,
     AppCommonModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

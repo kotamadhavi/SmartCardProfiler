@@ -63,6 +63,10 @@ ng g c transactions/customer/cards/crud/delete
 
 touch src/app/app-google-techstack/app-google-teckstack-routing.ts
 
+ng g s app-common/services/baseApi
+
+ng g s masterdata/services/customer/customerApi
+
 
 ````
 

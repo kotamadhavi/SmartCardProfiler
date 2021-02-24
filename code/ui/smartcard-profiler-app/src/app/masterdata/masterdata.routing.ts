@@ -8,6 +8,8 @@ const routes: Routes = [
     children: [
       {
         path:'', component: CustomerHomeComponent
+      },{
+        path:'customer-profile', component: CustomerHomeComponent
       }
     ]
   }
