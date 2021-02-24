@@ -16,6 +16,30 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from django.contrib import admin
+from django.urls import path, include
+
+from rest_framework import permissions
+from drf_yasg.views import get_schema_view
+from drf_yasg import openapi
+
+from smartapp_transaction_api import routes
+
+schema_view = get_schema_view(
+    openapi.Info(
+        title="Smart App Card Transactions API",
+        default_version='v1',
+        description="Smart App Card Transactions API description",
+        # terms_of_service="https://www.google.com/policies/terms/",
+        # contact=openapi.Contact(email="contact@snippets.local"),
+        # license=openapi.License(name="BSD License"),
+    ),
+    public=True,
+    permission_classes=(permissions.AllowAny,),
+)
+
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('api/customer-card-transactions/', include(routes.customer_transactions_router.urls)),
 ]
