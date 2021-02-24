@@ -5,16 +5,23 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CardIntakeComponent } from './transaction/create/card-intake/card-intake.component';
 import { CardIntakeListComponent } from './transaction/create/card-intake-list/card-intake-list.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { HomeComponent } from './home/home.component';
+import { AppCommonModule } from './app-common/app-common.module';
+import { NavbarComponent } from './app-common/layout/navbar/navbar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CardIntakeComponent,
-    CardIntakeListComponent
+    CardIntakeListComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgbModule,
+    AppCommonModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

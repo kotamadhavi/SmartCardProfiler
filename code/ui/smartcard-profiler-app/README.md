@@ -25,3 +25,55 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+
+# Sprint 01 Commands
+````sh
+
+cd SmartCardProfiler/code/ui/smartcard-profiler-app
+
+ng add @ng-bootstrap/ng-bootstrap
+# Say No for "Would you like to share anonymous usage data about this project "
+ng g c home
+ng g m transactions
+ng g m masterdata 
+ng g m predictions
+ng g m app_common
+ng g m app_shared
+ng g m app_google_techstack
+
+ng g c app-common/layout/navbar -m app-common
+ng g c app-common/layout/header -m app-common
+ng g c app-common/layout/footer -m app-common
+
+ng g c app-google-techstack/pubsub/pubsubHome
+ng g c app-google-techstack/bigquery/bigqueryHome
+ng g c app-google-techstack/dataproc/dataprocyHome
+
+touch src/app/app-google-techstack/app-google-teckstack-routing.ts
+
+
+````
+
+### Adding Layout
+- 1. Imported app-common moudle in app.module.ts
+
+- 2. Added "exports" of NavBarComponent in AppCommonComponent.ts
+
+- 3. Added <app-navbar> to app.component.html
+
+- 4. Updated index.html with <link> CSS and <script> as detailed in this Bootstrap Quickstart section https://getbootstrap.com/docs/4.0/getting-started/introduction/
+
+- 5. Updated navbar.component.html with the following
+  - a. Removed Search HTML form that generally comes when we copy the Bootstrap code from the getbootstrap.com website
+  - b. Changed the lables of the Navbar HTML i.e. removed the dummy values that we get generally when we copy the HTML from the above getboostrap.com website
+  - c. Changed the <nav class> names to have "navbar-dark bg-primary" so that blue color is shown in the Navigation bar
+  - d. Added routerLink and routerLinkActive to all the <a> tags in navbar.compoment.html
+
+- 6. Added RouterModule as imports in app-common.module.ts
+
+- 7. Added code for AppGoogleTechstackRouting class in src/app/app-google-techstack/app-google-teckstack-routing.ts. Also imported "AppGoogleTechstackRouting" in app-google-techstack.module.ts
+
+- 8. Added code for "Routes" variable like pubsub, dataproc, bigquery in app-google-teckstack-routing.ts
+
+- 9. 
