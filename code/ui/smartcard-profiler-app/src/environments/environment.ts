@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  API_CUST_BASE_URL: 'http://127.0.0.1:8000/api/masterdata'
+  API_CUST_BASE_URL: 'http://127.0.0.1:8000/api/masterdata',
+  API_TRANSACTIOINS_BASE_URL: 'http://127.0.0.1:8001/api/transactions'
 };
 
 /*
