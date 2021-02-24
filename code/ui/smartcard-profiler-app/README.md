@@ -50,6 +50,17 @@ ng g c app-google-techstack/pubsub/pubsubHome
 ng g c app-google-techstack/bigquery/bigqueryHome
 ng g c app-google-techstack/dataproc/dataprocyHome
 
+ng g c masterdata/customer/customerHome
+ng g c predictions/customer/custPredictionsHome
+ng g c transactions/customer/custTransactionsHome
+
+ng g c transactions/customer/cards/cardsHome
+ng g c transactions/customer/cards/crud/create
+ng g c transactions/customer/cards/crud/view
+ng g c transactions/customer/cards/crud/update
+ng g c transactions/customer/cards/crud/delete
+
+
 touch src/app/app-google-techstack/app-google-teckstack-routing.ts
 
 
@@ -76,4 +87,8 @@ touch src/app/app-google-techstack/app-google-teckstack-routing.ts
 
 - 8. Added code for "Routes" variable like pubsub, dataproc, bigquery in app-google-teckstack-routing.ts
 
-- 9. 
+- 9. Added code for "Routes" variable in masterdata-routing.ts, predictions-routing.ts, transactions-routing.ts
+
+- 10. Imported MasterDataRouting, PredictionsRouting and TransactionsRouting in masterdata-module.ts, predictions-routing.ts and transactions-routing.ts files respectively
+
+- 11. 
