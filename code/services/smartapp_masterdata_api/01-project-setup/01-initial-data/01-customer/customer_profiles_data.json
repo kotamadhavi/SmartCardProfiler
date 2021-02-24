@@ -1,0 +1,12 @@
+[
+  {
+    "model": "customer_profile.CustomerInfo",
+    "pk": 1,
+    "fields": {
+      "status" : "Active",
+      "first_name": "Matt",
+      "last_name": "Middles",
+      "email": "Matt.Elliott@yahoosite.com"
+    }
+  }
+]

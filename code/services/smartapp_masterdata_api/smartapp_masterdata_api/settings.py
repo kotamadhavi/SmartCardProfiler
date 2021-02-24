@@ -37,7 +37,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'customer_profile',
+    'corsheaders',
+    'rest_framework',
+    'drf_yasg',
+    'django_filters',
+    'django_mysql',
+    'customer_profile.apps.CustomerProfileConfig',
     'customer_transactions',
     'customer_predictions'
 ]
