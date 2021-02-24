@@ -4,6 +4,6 @@ import { Injectable } from "@angular/core";
   providedIn: 'root'
 })
 export class AppAngularRoutes {
-  CUST_PROFILE_VIEW: string = "/masterdata/customer-profile";
+  CUST_PROFILE_VIEW: string = "/masterdata/customer-profile-view";
 
 }
