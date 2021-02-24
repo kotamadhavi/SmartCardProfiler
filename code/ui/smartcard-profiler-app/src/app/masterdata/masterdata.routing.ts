@@ -4,7 +4,7 @@ import { CustomerHomeComponent } from './customer/customer-home/customer-home.co
 
 const routes: Routes = [
    {
-    path:'customer',
+    path:'', component: CustomerHomeComponent,
     children: [
       {
         path:'', component: CustomerHomeComponent
