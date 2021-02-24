@@ -1,5 +1,7 @@
 from rest_framework import routers
 
+from customer_transactions.views import CardTransactionInfoViewSet
+
 
 class CustomAPIRootView(routers.APIRootView):
 
@@ -14,4 +16,4 @@ class CustomRouter(routers.DefaultRouter):
 
 
 customer_transactions_router = CustomRouter()
-# customer_transactions_router.register(r'customer-card-transaction', CustomerProfileViewSet)
+customer_transactions_router.register(r'cards', CardTransactionInfoViewSet)

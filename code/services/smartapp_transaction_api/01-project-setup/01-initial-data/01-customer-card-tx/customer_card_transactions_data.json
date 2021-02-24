@@ -1,0 +1,11 @@
+[
+  {
+    "model": "customer_transactions.CardTransactionInfo",
+    "pk": 1,
+    "fields": {
+      "status" : "Active",
+      "customer_id": 1,
+      "card_value": "1000"
+    }
+  }
+]
