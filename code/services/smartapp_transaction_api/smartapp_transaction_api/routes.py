@@ -1,6 +1,7 @@
 from rest_framework import routers
 
-from customer_transactions.views import CardTransactionInfoViewSet
+from customer_transactions.views import CardTransactionInfoViewSet, CreateCardTransactionPredictEventViewSet, \
+    CardTransactionPredictEventViewSet
 
 
 class CustomAPIRootView(routers.APIRootView):
@@ -17,3 +18,5 @@ class CustomRouter(routers.DefaultRouter):
 
 customer_transactions_router = CustomRouter()
 customer_transactions_router.register(r'cards', CardTransactionInfoViewSet)
+# customer_transactions_router.register(r'create-card-predict-event', CreateCardTransactionPredictEventViewSet.as_view())
+customer_transactions_router.register(r'cards-predict-events', CardTransactionPredictEventViewSet)

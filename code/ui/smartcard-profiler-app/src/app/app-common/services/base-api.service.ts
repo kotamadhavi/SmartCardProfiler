@@ -23,9 +23,11 @@ export class BaseApiService {
     public post(url: string, body: any, showToast=true, params?: HttpParams| {[param: string]: string | string[]}): Observable<any> {
         return this.http.post(url, body, { params } ).pipe(
             switchMap((result) => {
+              console.log("result " + result)
                 return of(result);
             }),
             catchError((err) => {
+              console.log("error " + err)
                 return err;
             })
         )

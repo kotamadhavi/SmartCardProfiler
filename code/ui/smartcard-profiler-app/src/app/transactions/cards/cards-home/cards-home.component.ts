@@ -14,6 +14,7 @@ export class CardsHomeComponent implements OnInit {
   public loading = true;
   public results = {};
   public data = [];
+  public primaryKeys:string[]= [];
   public columns: DataTableColumn[] = [
         { data: 'url', title: 'Id', isLink: true, linkUrl: this.appAngRoutes.CARD_TRANSACTION_DETAILS_VIEW },
         { data: 'customer_id', title: 'Customer Id'},
@@ -31,14 +32,19 @@ export class CardsHomeComponent implements OnInit {
         if (resultsObj === null || resultsObj === undefined) {
           resultsObj = [];
           this.data = [];
+          this.primaryKeys = [];
         }
 
         this.data = resultsObj.map((res:any) => {
           const row: any[] = [];
 
+          this.primaryKeys = [];
           this.columns.forEach((col) => {
             if (col.data === 'url') {
-              row.push(this.appUtil.build_model_view_url(res[col.data], this.appAngRoutes.CARD_TRANSACTION_DETAILS_VIEW));
+              const pkey = this.appUtil.build_model_view_url(res[col.data], this.appAngRoutes.CARD_TRANSACTION_DETAILS_VIEW);
+              row.push(pkey);
+              this.primaryKeys.push(this.appUtil.getIdFromUrl(res[col.data]));
+
             }else {
               row.push(res[col.data]);
             }
@@ -52,6 +58,12 @@ export class CardsHomeComponent implements OnInit {
 
   showAddNewCardTransaction() {
 
+  }
+
+  generateCardTransactionPredictEvent(indexOfelement:number) {
+    const cardPrimaryKey = this.primaryKeys[indexOfelement];
+    console.log("cardPrimaryKey " + cardPrimaryKey)
+    this.apiSvc.generateCardTransactionPredictEvent(cardPrimaryKey).subscribe();
   }
 
   public isObject(val:any): boolean { return typeof val === 'object'; }

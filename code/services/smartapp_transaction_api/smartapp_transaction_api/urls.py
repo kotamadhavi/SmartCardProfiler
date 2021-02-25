@@ -23,6 +23,7 @@ from rest_framework import permissions
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
 
+from customer_transactions.views import CreateCardTransactionPredictEventViewSet
 from smartapp_transaction_api import routes
 
 schema_view = get_schema_view(
@@ -42,4 +43,5 @@ schema_view = get_schema_view(
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/transactions/', include(routes.customer_transactions_router.urls)),
+    path(r'api/transactions/create-card-predict-event/', CreateCardTransactionPredictEventViewSet.as_view())
 ]

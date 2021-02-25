@@ -9,6 +9,16 @@ import { map } from 'rxjs/operators';
 })
 export class CardApiService {
 
+  generateCardTransactionPredictEvent(cardPrimaryKey: string) {
+    const url = `${this.app_routes.API_URL_CARD_TRAN_PREDICT_EVENT}/?cardpk=${cardPrimaryKey}`;
+    console.log("url " + url);
+    return this.baseApi.post(url, null).pipe(
+      map((res) => {
+        return res['results'];
+      })
+    );
+  }
+
   constructor(private app_routes: AppRoutes, private baseApi: BaseApiService) { }
 
   public getAllCardTransactions() : Observable<any>{

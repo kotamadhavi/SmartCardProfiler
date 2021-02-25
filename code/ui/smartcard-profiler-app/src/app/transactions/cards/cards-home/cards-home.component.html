@@ -18,11 +18,12 @@
                   <thead>
                     <tr>
                       <th *ngFor="let header of columns" [ngClass]="{ 'title-width': header.data === 'title' || header.data === 'name' || header.data === 'address_title'}">{{ header.title }}</th>
+                      <th>Prediction Actions</th>
                     </tr>
                 </thead>
                 <tbody>
                     <ng-container *ngIf="data.length">
-                      <tr *ngFor="let row of data">
+                      <tr *ngFor="let row of data;let indexOfelement=index;">
                         <td *ngFor="let item of row">
                           <ng-container *ngIf="item && isObject(item); else text">
                             <ng-container *ngIf="item['isLink'] ">
@@ -32,6 +33,9 @@
                           <ng-template #text>
                               {{item}}
                           </ng-template>
+                        </td>
+                        <td>
+                          <button (click)="generateCardTransactionPredictEvent(indexOfelement)" type="button" class="btn btn-info">Generate Prediction Event</button>
                         </td>
                       </tr>
                     </ng-container>
