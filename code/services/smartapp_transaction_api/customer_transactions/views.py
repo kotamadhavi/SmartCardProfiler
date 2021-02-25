@@ -2,7 +2,6 @@ import logging
 from datetime import datetime
 
 from django.db.models import Q
-from django.shortcuts import get_object_or_404
 from django.utils.timezone import make_aware
 from drf_yasg.utils import swagger_auto_schema
 from rest_framework import mixins
@@ -13,7 +12,9 @@ from rest_framework.decorators import action
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
+
 from app_common.app_constants import APP_DOMAIN_SYSTEM_RECORD_PRIMARY_KEY
+from app_common.global_objects import PUBLISH_MANAGER_REF
 from customer_transactions.models import CardTransactionInfo, CardTransactionPredictEvent
 from customer_transactions.serializer import CardTransactionInfoSerializer, CardTransactionPredictEventSerializer
 
@@ -70,6 +71,14 @@ class CreateCardTransactionPredictEventViewSet(APIView):
                 card_tx_predidt_event.save(force_insert=True)
                 serializer = CardTransactionInfoSerializer(a_card_transaction_info, many=False,
                                                            context={'request': request})
+
+                publish_message_info = {}
+                publish_message_info['card_tx_predidt_event_pk'] = card_tx_predidt_event.pk
+                publish_message_info['customer_id'] = card_tx_predidt_event.customer_id
+                publish_message_info['card_transaction_id'] = card_tx_predidt_event.card_transaction_id.pk
+
+                PUBLISH_MANAGER_REF.publish_card_transaction_event_message(publish_message_info)
+
                 data = serializer.data
 
         LOGGER.info("Exit")

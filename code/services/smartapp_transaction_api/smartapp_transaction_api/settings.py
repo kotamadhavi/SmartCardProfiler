@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/3.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
-
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -126,3 +126,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# https://cloud.google.com/pubsub/docs/publisher#python
+GCP_PUBSUB_PROJECT_ID = os.getenv('ENV_SMART_CARD_APP_GCP_PROJECT_ID', 'smart-card-app-project')
+GCP_PUBSUB_TOPIC_ID = os.getenv('ENV_SMART_CARD_APP_GCP_PUBSUB_TOPIC_ID', 'smart-card-transaction-event-topic')
