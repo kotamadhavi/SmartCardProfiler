@@ -3,6 +3,7 @@ from datetime import datetime
 
 from django.db.models import Q
 from django.shortcuts import get_object_or_404
+from django.utils.timezone import make_aware
 from drf_yasg.utils import swagger_auto_schema
 from rest_framework import mixins
 from rest_framework import status
@@ -64,7 +65,7 @@ class CreateCardTransactionPredictEventViewSet(APIView):
                 card_tx_predidt_event = CardTransactionPredictEvent()
                 card_tx_predidt_event.card_transaction_id = a_card_transaction_info
                 card_tx_predidt_event.customer_id = a_card_transaction_info.customer_id
-                card_tx_predidt_event.event_date = datetime.now()
+                card_tx_predidt_event.event_date = make_aware(datetime.now())
                 card_tx_predidt_event.event_technology_type = "gcp-pubsub"
                 card_tx_predidt_event.save(force_insert=True)
                 serializer = CardTransactionInfoSerializer(a_card_transaction_info, many=False,
