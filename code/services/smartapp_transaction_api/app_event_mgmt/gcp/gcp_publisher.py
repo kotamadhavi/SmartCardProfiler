@@ -16,7 +16,7 @@ class GCPPublisher:
             def callback(f):
                 try:
                     print(f.result())
-                    futures.pop(data)
+                    # futures.pop(data)
                 except:  # noqa
                     print("Please handle {} for {}.".format(f.exception(), data))
 

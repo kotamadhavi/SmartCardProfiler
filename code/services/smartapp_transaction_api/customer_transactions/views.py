@@ -76,6 +76,7 @@ class CreateCardTransactionPredictEventViewSet(APIView):
                 publish_message_info['card_tx_predidt_event_pk'] = card_tx_predidt_event.pk
                 publish_message_info['customer_id'] = card_tx_predidt_event.customer_id
                 publish_message_info['card_transaction_id'] = card_tx_predidt_event.card_transaction_id.pk
+                publish_message_info['card_value'] = card_tx_predidt_event.card_transaction_id.card_value
 
                 PUBLISH_MANAGER_REF.publish_card_transaction_event_message(publish_message_info)
 
