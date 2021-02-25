@@ -13,7 +13,7 @@ python manage.py startapp customer_predictions
 python manage.py makemigrations customer_profile  customer_transactions  customer_predictions
 python manage.py migrate
 
-python manage.py runnserver
+python manage.py runserver
 
 ```
 
